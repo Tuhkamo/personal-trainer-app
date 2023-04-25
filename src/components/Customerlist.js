@@ -14,14 +14,14 @@ export default function Customerlist() {
     useEffect(() => fetchCustomerData(), []);
 
     const fetchCustomerData = () => {
-        fetch('http://traineeapp.azurewebsites.net/api/customers')
+        fetch('https://traineeapp.azurewebsites.net/api/customers')
             .then(response => response.json())
             .then(data => setCustomers(data.content))
             .catch(error => console.error(error))
     }
 
     const saveCustomer = (customer) => {
-        fetch('http://traineeapp.azurewebsites.net/api/customers', {
+        fetch('https://traineeapp.azurewebsites.net/api/customers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

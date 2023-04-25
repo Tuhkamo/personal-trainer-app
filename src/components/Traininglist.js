@@ -10,7 +10,7 @@ export default function Traininglist() {
     useEffect(() => fetchTrainingData(), []);
 
     const fetchTrainingData = () => {
-        fetch('http://traineeapp.azurewebsites.net/gettrainings')
+        fetch('https://traineeapp.azurewebsites.net/gettrainings')
             .then(response => response.json())
             .then(data => setTrainings(data))
             .then(console.log(trainings))
@@ -18,7 +18,7 @@ export default function Traininglist() {
     }
 
     const saveTraining = (training) => {
-        fetch('http://traineeapp.azurewebsites.net/api/trainings', {
+        fetch('https://traineeapp.azurewebsites.net/api/trainings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
