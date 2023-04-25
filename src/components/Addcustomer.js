@@ -5,6 +5,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Addcustomer(props) {
 
@@ -22,7 +23,7 @@ export default function Addcustomer(props) {
     }
 
     const handleInputChange = (event) => {
-        setCustomer({...customer, [event.target.name]: event.target.value})
+        setCustomer({ ...customer, [event.target.name]: event.target.value })
     }
 
     const addCustomer = () => {
@@ -32,8 +33,8 @@ export default function Addcustomer(props) {
 
     return (
         <div>
-            <Button style={{marginBottom: 20, }} variant="contained" color="primary"  onClick={handleClickOpen}>
-                Add customer
+            <Button style={{ marginBottom: 20, }} variant="contained" color="primary" onClick={handleClickOpen}>
+                <AddCircleIcon style={{ marginRight: 10 }}></AddCircleIcon> Add customer
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">New Customer</DialogTitle>

@@ -8,6 +8,11 @@ import Typography from "@material-ui/core/Typography";
 import { Tab, Tabs, Box } from '@mui/material';
 import { TabContext } from '@mui/lab';
 import TabPanel from '@mui/lab/TabPanel';
+import Calendarpage from './components/Calendarpage';
+import PersonIcon from '@mui/icons-material/Person';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import EventIcon from '@mui/icons-material/Event';
+import AppsIcon from '@mui/icons-material/Apps';
 
 function App() {
 
@@ -18,14 +23,13 @@ function App() {
   };
 
 
-
-
   return (
     <div className="App">
       <AppBar position="static">
         <Toolbar>
+        <AppsIcon style={{ marginRight: 10 }}></AppsIcon>
           <Typography>
-            Training App
+             Training App
           </Typography>
         </Toolbar>
       </AppBar>
@@ -33,15 +37,19 @@ function App() {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-              <Tab label="Customers" value="1" />
-              <Tab label="Trainings" value="2" />
+              <Tab label={<><PersonIcon />Customers</>} value="1" />
+              <Tab label={<><FitnessCenterIcon />Trainings</>} value="2" />
+              <Tab label={<><EventIcon />Calendar</>} value="3" />
             </Tabs>
           </Box>
           <TabPanel value="1">
-            <Customerlist/>
+            <Customerlist />
           </TabPanel>
           <TabPanel value="2">
-            <Traininglist/>
+            <Traininglist />
+          </TabPanel>
+          <TabPanel value="3">
+            <Calendarpage />
           </TabPanel>
         </TabContext>
       </Box>

@@ -9,6 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 export default function Addtraining(props) {
 
@@ -41,7 +42,7 @@ export default function Addtraining(props) {
     return (
         <div>
             <Button style={{ marginBottom: 20, }} variant="contained" color="primary" onClick={handleClickOpen}>
-                Add training
+                <AddCircleIcon style={{ marginRight: 10 }}></AddCircleIcon>Add training
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">New training</DialogTitle>

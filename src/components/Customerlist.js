@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Button, ButtonGroup } from "@mui/material";
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import Addcustomer from "./Addcustomer";
 import Editcustomer from "./Editcustomer";
+import CsvDownloader from 'react-csv-downloader';
+import DownloadIcon from '@mui/icons-material/Download';
+
 
 export default function Customerlist() {
     const [customers, setCustomers] = useState([]);
@@ -25,15 +28,15 @@ export default function Customerlist() {
             },
             body: JSON.stringify(customer)
         })
-        .then(res => fetchCustomerData())
-        .catch(err => console.error(err))
+            .then(res => fetchCustomerData())
+            .catch(err => console.error(err))
     }
 
     const deleteCustomer = (link) => {
-        if (window.confirm('Are you sure?')){
-            fetch(link, {method: 'DELETE'})
-            .then(response => fetchCustomerData())
-            .catch(error => console.error(error))
+        if (window.confirm('Are you sure?')) {
+            fetch(link, { method: 'DELETE' })
+                .then(response => fetchCustomerData())
+                .catch(error => console.error(error))
         }
     }
 
@@ -45,8 +48,8 @@ export default function Customerlist() {
             },
             body: JSON.stringify(customer)
         })
-        .then(res => fetchCustomerData())
-        .catch(err => console.error(err))
+            .then(res => fetchCustomerData())
+            .catch(err => console.error(err))
     }
 
     const columns = [
@@ -82,7 +85,7 @@ export default function Customerlist() {
             sortable: false,
             filterable: false,
             width: 100,
-            Cell: row => <Editcustomer updateCustomer={updateCustomer} customer={row.original}/>
+            Cell: row => <Editcustomer updateCustomer={updateCustomer} customer={row.original} />
         },
         {
             sortable: false,
@@ -93,9 +96,63 @@ export default function Customerlist() {
         },
     ]
 
+    const csvColumns = [
+        {
+            id: 'firstName',
+            displayName: 'First Name'
+        },
+        {
+            id: 'lastName',
+            displayName: 'Last Name'
+        },
+        {
+            id: 'email',
+            displayName: 'Email'
+        },
+        {
+            id: 'phone',
+            displayName: 'Phone Number'
+        },
+        {
+            id: 'address',
+            displayName: 'Street Address'
+        },
+        {
+            id: 'postcode',
+            displayName: 'Postcode'
+        },
+        {
+            id: 'city',
+            displayName: 'City'
+        }
+    ]
+
+    const csvDatas = customers.map((customer) => ({
+        firstName: customer.firstname,
+        lastName: customer.lastname,
+        email: customer.email,
+        phone: customer.phone,
+        address: customer.streetaddress,
+        postcode: customer.postcode,
+        city: customer.city,
+    }));
+
     return (
         <div>
-            <Addcustomer saveCustomer={saveCustomer}/>
+            <ButtonGroup>
+                <Addcustomer saveCustomer={saveCustomer} />
+                <CsvDownloader
+                    filename="customers"
+                    extension=".csv"
+                    separator=","
+                    columns={csvColumns}
+                    datas={csvDatas}
+                >
+                    <Button style={{ marginBottom: 20, backgroundColor: "green", marginLeft: 10 }} variant="contained" color="primary">
+                        <DownloadIcon style={{ marginRight: 10 }}></DownloadIcon>Download Customers.csv
+                    </Button>
+                </CsvDownloader>
+            </ButtonGroup>
             <ReactTable filterable={true} data={customers} columns={columns} />
         </div>
     );

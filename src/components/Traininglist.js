@@ -13,6 +13,7 @@ export default function Traininglist() {
         fetch('http://traineeapp.azurewebsites.net/gettrainings')
             .then(response => response.json())
             .then(data => setTrainings(data))
+            .then(console.log(trainings))
             .catch(error => console.error(error))
     }
 
