@@ -5,10 +5,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-<<<<<<< HEAD
-    "@material-ui/core": "^4.12.4",
-=======
->>>>>>> cc9646d (Removed @material-ui/core)
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.125",
     "@mui/material": "^5.11.16",
@@ -17,10 +13,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "ag-grid-community": "^29.2.0",
-<<<<<<< HEAD
-    "dayjs": "^1.11.7",
-=======
->>>>>>> cc9646d (Removed @material-ui/core)
     "lab": "^18.0.2",
     "moment": "^2.29.4",
     "mui": "^0.0.1",

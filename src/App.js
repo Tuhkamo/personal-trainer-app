@@ -2,14 +2,7 @@ import './App.css';
 import React from 'react';
 import Customerlist from './components/Customerlist';
 import Traininglist from './components/Traininglist';
-<<<<<<< HEAD
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import { Tab, Tabs, Box } from '@mui/material';
-=======
 import { Tab, Tabs, Box, Toolbar, Typography, AppBar } from '@mui/material';
->>>>>>> cc9646d (Removed @material-ui/core)
 import { TabContext } from '@mui/lab';
 import TabPanel from '@mui/lab/TabPanel';
 import Calendarpage from './components/Calendarpage';
