@@ -13,7 +13,6 @@ export default function Traininglist() {
         fetch('https://traineeapp.azurewebsites.net/gettrainings')
             .then(response => response.json())
             .then(data => setTrainings(data))
-            .then(console.log(trainings))
             .catch(error => console.error(error))
     }
 
@@ -32,7 +31,6 @@ export default function Traininglist() {
     const deleteTraining = (link) => {
         if (window.confirm('Are you sure?')){
             fetch(link, {method: 'DELETE'})
-            .then(console.log(link))
             .then(response => fetchTrainingData())
             .catch(error => console.error(error))
         }
